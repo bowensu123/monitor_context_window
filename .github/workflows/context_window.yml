@@ -26,8 +26,10 @@ jobs:
       - name: 安装依赖库
         run: pip install requests
 
-      - name: 运行监控脚本
+      - name: Run Monitor Script
         env:
-         
           FEISHU_WEBHOOK: ${{ secrets.FEISHU_WEBHOOK }}
+          EMAIL_USER: ${{ secrets.EMAIL_USER }}
+          EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
+          RECEIVER_EMAIL: ${{ secrets.RECEIVER_EMAIL }}
         run: python monitor.py
